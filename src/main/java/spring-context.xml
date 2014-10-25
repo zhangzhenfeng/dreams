@@ -13,7 +13,14 @@
 	http://www.springframework.org/schema/context/spring-context-4.0.xsd
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
-
+	
+	<!-- JDBC -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	
+	<!-- 注入dao和service -->
+	<context:component-scan base-package="com.margin.dream.service" />
+	<context:component-scan base-package="com.margin.dream.dao" />
+	
 	<!-- 数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.drivername}" />
@@ -35,14 +42,14 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- <property name="configLocation" value="classpath:mybatis-config.xml" /> -->
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
 	</bean>
 
 	<!-- 将mybatis映射的mapper进行自动扫描，并且加入到spring的容器中 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!--可用,或者;分割多个扫描的包 -->
 		<property name="basePackage"
-			value="" />
+			value="com.margin.dream.dao" />
 	</bean>
 
 
