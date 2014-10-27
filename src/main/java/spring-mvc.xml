@@ -19,14 +19,14 @@
 	<!-- 静态资源 -->
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 	
-	<!-- 拦截器
+	<!-- 拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*"/>
-			<bean class="com.sj.weibank.framework.interceptors.PortalInterceptor"></bean>
+			<bean class="com.margin.dream.controller.CommonInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	 -->
+	
 	 
 
 	<!-- 定义VIEW -->

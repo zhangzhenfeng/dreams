@@ -15,7 +15,7 @@ public class TestController {
 	
 	@RequestMapping(value = "login", produces = "text/html;charset=UTF-8", method = RequestMethod.GET)
 	public String login(){
-		
+		System.out.println("111111111111");
 		testService.test();
 		
 		return "success";
