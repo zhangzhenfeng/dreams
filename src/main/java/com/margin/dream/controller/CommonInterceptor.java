@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.margin.dream.frame.util.WebConstantValue;
+
 public class CommonInterceptor implements HandlerInterceptor {
 
 	private Logger logger = Logger.getLogger(CommonInterceptor.class);
@@ -16,6 +18,9 @@ public class CommonInterceptor implements HandlerInterceptor {
 	
 	/** 登陆页面 **/
 	private static final String LOGIN_URL = "login.jsp";
+	
+	/** Session中的username KEY. */
+	protected static final String SESSION_KEY_USERNAME = WebConstantValue.SESSION_KEY_USERNAME;
 	
 	public CommonInterceptor() {
 
@@ -65,7 +70,7 @@ public class CommonInterceptor implements HandlerInterceptor {
 
 		// 从Session中取得登录者的用户名
 		String strUserName = (String) request.getSession().getAttribute(
-				"username");
+				SESSION_KEY_USERNAME);
 
 		// 如果存在session
 		if (strUserName != null) {

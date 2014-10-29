@@ -8,11 +8,11 @@ import com.google.gson.GsonBuilder;
  * 
  * Json转换类.
  * 
- * @author 张孝党 2014/04/18.
+ * @author 张振峰 2014/10/29.
  * 
  * @version V1.00.
  * 
- *          更新履历： V1.00 2013/04/18 张孝党 创建.
+ *          更新履历： V1.00 2014/10/29 张振峰 创建.
  */
 public class WebJsonUtil {
 
