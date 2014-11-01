@@ -9,5 +9,6 @@
 	
 	<mappers>
 		<mapper resource="com/margin/dream/dao/imp/TestMapper.xml" />
+		<mapper resource="com/margin/dream/dao/imp/LoginMapper.xml" />
 	</mappers>
 </configuration>
