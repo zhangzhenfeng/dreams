@@ -1,5 +1,7 @@
 package com.margin.dream.dao;
 
+import java.util.Map;
+
 /**
  * Copyright(C) JiNanShangJie 2014.
  * 
@@ -12,5 +14,12 @@ package com.margin.dream.dao;
  *          更新履历： V1.00 2014/10/29 张振峰 创建.
  */
 public interface LoginDao{
+	
+	/**
+	 * 根据用户的email获取用户的密码
+	 * @param paramMap
+	 * @return
+	 */
+	public String getUserPassword(Map<String, Object> paramMap);
 	
 }
