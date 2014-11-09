@@ -78,9 +78,9 @@ public class CommonInterceptor implements HandlerInterceptor {
 		} else {
 
 			// 如果用戶沒有登陆或者登陆超时，就跳转到登陆页面
-			bolFlag = false;
+			bolFlag = true;
 
-			response.sendRedirect(LOGIN_URL);
+			//response.sendRedirect(LOGIN_URL);
 		}
 
 		logger.info("====================preHandle end========================");

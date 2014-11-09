@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.margin.dream.frame.model.BaseModel;
 import com.margin.dream.frame.util.WebConstantValue;
 import com.margin.dream.frame.util.WebJsonUtil;
 
@@ -166,5 +167,21 @@ public class BaseController {
 			in = null;
 			return null;
 		}
+	}
+	
+	/**
+	 * 设置controller返回异常的信息
+	 */
+	protected BaseModel getSysErrorModel() {
+
+		// 创建返回的model
+		BaseModel model = new BaseModel();
+
+		// 设置系统提示信息错误
+		model.setMsg(WebConstantValue.SYS_ERROR);
+		model.setState(WebConstantValue.HTTP_ERROR);
+
+		// 返回
+		return model;
 	}
 }

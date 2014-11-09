@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.margin.dream.frame.util.WebConstantValue;
+
 /**
  * Copyright(C) JiNanShangJie 2014.
  * 
@@ -18,7 +20,7 @@ import java.util.Map;
 public class BaseModel {
 	
 	/** 状态. */
-	private boolean state = false;
+	private String state = WebConstantValue.HTTP_ERROR;
 
 	/** 提示信息. */
 	private String msg;
@@ -29,11 +31,11 @@ public class BaseModel {
 	/** 前台渲染的List. */
 	private List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
 
-	public boolean isState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 

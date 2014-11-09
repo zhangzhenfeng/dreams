@@ -15,5 +15,4 @@ import com.margin.dream.frame.model.BaseModel;
  */
 public class UserModel extends BaseModel{
 	
-	
 }
