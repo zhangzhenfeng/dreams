@@ -1,90 +1,17 @@
 package com.margin.dream.util;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.zip.CRC32;
-import java.util.zip.CheckedOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
+/**
+ * Copyright(C) JiNanShangJie 2014.
+ * 
+ * æ–‡ä»¶æ“ä½œç±»
+ * 
+ * @author å¼ æŒ¯å³° 2014/10/29.
+ * 
+ * @version V1.00.
+ * 
+ *          æ›´æ–°å±¥å†ï¼š V1.00 2014/10/29 å¼ æŒ¯å³° åˆ›å»º.
+ */
 public class FileUtil {
-	static final int BUFFER = 8192;   
-	  
-    private File zipFile;   
-    
-    /**
-     * Ñ¹ËõÎÄ¼ş¼Ğ³Ézip°ü
-     * @param srcPathName ÒªÑ¹ËõµÄÎÄ¼şÂ·¾¶
-     * @param zipName ÒªÑ¹Ëõ³ÉµÄÎÄ¼şÃû£¬ÀıÈçzhangzf.zip
-     * @return zip°üµÄÂ·¾¶¡£
-     */
-    public String compress(String srcPathName,String zipName) {   
-        File file = new File(srcPathName);   
-        if (!file.exists())   
-            throw new RuntimeException(srcPathName + "²»´æÔÚ£¡");   
-        try {   
-        	zipFile = new File(srcPathName + zipName + ".zip");
-        	//Èç¹ûzipÎÄ¼ş²»´æÔÚ¾Í´´½¨
-        	if(!zipFile.exists()){
-        		zipFile.createNewFile();
-        	}
-            FileOutputStream fileOutputStream = new FileOutputStream(zipFile);   
-            CheckedOutputStream cos = new CheckedOutputStream(fileOutputStream,   
-                    new CRC32());   
-            ZipOutputStream out = new ZipOutputStream(cos);   
-            String basedir = "";   
-            compress(file, out, basedir);   
-            out.close();   
-        } catch (Exception e) {   
-            throw new RuntimeException(e);   
-        }
-        
-        return zipFile.getPath();
-    }   
-  
-    private void compress(File file, ZipOutputStream out, String basedir) {   
-        /* ÅĞ¶ÏÊÇÄ¿Â¼»¹ÊÇÎÄ¼ş */  
-        if (file.isDirectory()) {   
-            System.out.println("Ñ¹Ëõ£º" + basedir + file.getName());   
-            this.compressDirectory(file, out, basedir);   
-        } else {   
-            System.out.println("Ñ¹Ëõ£º" + basedir + file.getName());   
-            this.compressFile(file, out, basedir);   
-        }   
-    }   
-  
-    /** Ñ¹ËõÒ»¸öÄ¿Â¼ */  
-    private void compressDirectory(File dir, ZipOutputStream out, String basedir) {   
-        if (!dir.exists())   
-            return;   
-  
-        File[] files = dir.listFiles();   
-        for (int i = 0; i < files.length; i++) {   
-            /* µİ¹é */  
-            compress(files[i], out, basedir + dir.getName() + "/");   
-        }   
-    }   
-  
-    /** Ñ¹ËõÒ»¸öÎÄ¼ş */  
-    private void compressFile(File file, ZipOutputStream out, String basedir) {   
-        if (!file.exists()) {   
-            return;   
-        }   
-        try {   
-            BufferedInputStream bis = new BufferedInputStream(   
-                    new FileInputStream(file));   
-            ZipEntry entry = new ZipEntry(basedir + file.getName());   
-            out.putNextEntry(entry);   
-            int count;   
-            byte data[] = new byte[BUFFER];   
-            while ((count = bis.read(data, 0, BUFFER)) != -1) {   
-                out.write(data, 0, count);   
-            }   
-            bis.close();   
-        } catch (Exception e) {   
-            throw new RuntimeException(e);   
-        }   
-    }   
+	
 }
