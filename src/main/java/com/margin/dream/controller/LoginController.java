@@ -15,7 +15,7 @@ import com.margin.dream.service.LoginService;
 import com.margin.dream.view.UserView;
 
 /**
- * Copyright(C) JiNanShangJie 2014.
+ * Copyright(C) JiNanShangJie 2014.1
  * 
  * 登录controller
  * 
