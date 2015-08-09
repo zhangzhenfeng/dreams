@@ -50,4 +50,10 @@ public class LoginController extends BaseController{
 		logger.info("========================Controller login End==========================");
 		return WebJsonUtil.bean2Json(resultModel);
 	}
+	
+	@RequestMapping(value = "/test", produces = WebConstantValue.PRODUCE_TEXT, method = RequestMethod.GET)
+	@ResponseBody
+	public void test(String content){
+		logger.info("短信内容为---->"+content);
+	}
 }
